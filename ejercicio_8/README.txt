@@ -1,22 +1,16 @@
-___DATABASE-LOGS
+__Pasos para correr el proyecto:
+__Correr en la terminal
 
-___SERVICIOS SIMULADOS (API):
--JSON
--
+python -m venv venv
 
-___server ():
-- DATABASE-CRUD
+venv\Scripts\activate
 
-___SERVIDOR CENTRAL
-- verificacion de token recibido con lista de tokens validos
+Ejecutar requirements.txt
 
-info logs:
-● La fecha y hora exacta en que se generó el log
-● El nombre del servicio que está generando el log
-● El nivel de severidad del log (Info, error, debug, etc)
-● Un mensaje descriptivo que explica qué ocurrió
+__En terminal 1:
 
+python server.py
 
-___MENSAJES DE ERROR
-- si el token es incorrecto
--
+__En terminal 2:
+
+python client.py
