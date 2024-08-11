@@ -1,15 +1,6 @@
-python -m venv venv
-
-venv\Scripts\activate
-
 pip install flask
 
 pip install requests
 
 pip install sqlite3
 
-run dblogs.py
-
-run python server.py
-
-run python client.py
