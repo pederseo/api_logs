@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Registros por Fecha</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <h1 class="text-2xl font-bold mb-6 text-center">Filtro de Registros por Fecha</h1>
+    
+    <form action="{{ url_for('filtrar_logs') }}" method="post" class="w-full max-w-lg mb-6">
+        <div class="mb-4">
+            <label for="inicio" class="block text-sm font-medium text-gray-700">Fecha Inicio:</label>
+            <select name="inicio" id="inicio" class="w-full p-2 border border-gray-300 rounded-md">
+                {% for logs in lista_logs %}
+                    <option value="{{ logs }}">{{ logs }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="final" class="block text-sm font-medium text-gray-700">Fecha Final:</label>
+            <select name="final" id="final" class="w-full p-2 border border-gray-300 rounded-md">
+                {% for logs in lista_logs %}
+                    <option value="{{ logs }}">{{ logs }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="flex justify-center">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                Filtrar
+            </button>
+        </div>
+    </form>
+
+    <table class="w-full max-w-4xl divide-y divide-gray-200">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timestamp</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Received At</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service Name</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Severity</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            {% for log in resultado %}
+            <tr>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-900">{{ log[0] }}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ log[1] }}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ log[2] }}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ log[3] }}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ log[4] }}</td>
+                <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ log[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

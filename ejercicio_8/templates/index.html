@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold mb-6 text-center">Error Simulator</h1>
+        <form action="{{ url_for('index') }}" method="post">
+            <div class="mb-4">
+                <label for="service" class="block text-sm font-medium text-gray-700">Selecciona un tipo de servicio:</label>
+                <select id="service" name="service" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="Servicio1">Servicio1</option>
+                    <option value="Servicio2">Servicio2</option>
+                    <option value="Servicio3">Servicio3</option>
+                </select>
+            </div>
+            <div class="mb-6">
+                <label for="error" class="block text-sm font-medium text-gray-700">Selecciona un tipo de error:</label>
+                <select id="error" name="error" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="DEBUG">DEBUG</option>
+                    <option value="INFO">INFO</option>
+                    <option value="WARNING">WARNING</option>
+                    <option value="ERROR">ERROR</option>
+                    <option value="CRITICAL">CRITICAL</option>
+                    <option value="FATAL">FATAL</option>
+                </select>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                    Simular Error
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
